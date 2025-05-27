@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SVG Animation with Brython</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename='brython.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='brython_stdlib.min.js') }}"></script>
+    <script type="text/javascript">
+        console.log("Brython scripts loaded");
+    </script>
+    <script type="text/python" src="/scripts/animation.py"></script>
+</head>
+
+<body onload="brython()">
+    <svg id="screen" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="Cabeza">
+            <circle cx="0" cy="0" r="10" fill="red" />
+            
+
+        </symbol>
+
+        <symbol id="Espina">
+            <rect x="-5" y="-5" width="10" height="10" fill="green" />
+        </symbol>
+        <symbol id="Aletas">
+            <circle cx="0" cy="0" r="5" fill="yellow" />
+        </symbol>
+    </svg>
+
+
+    <!-- Curving snake path -->
+    <g transform="translate(30,50)">
+        <use href="#Head" x="0" y="0" />
+        <use href="#BodySegment" x="15" y="5" />
+        <use href="#BodySegment" x="30" y="0" />
+        <use href="#BodySegment" x="45" y="5" />
+        <use href="#BodySegment" x="60" y="0" />
+        <use href="#BodySegment" x="75" y="5" />
+        <use href="#BodySegment" x="90" y="0" opacity="0.8" />
+        <use href="#BodySegment" x="105" y="5" opacity="0.6" />
+        <use href="#BodySegment" x="120" y="0" opacity="0.4" />
+    </g>
+    </svg>
+
+
+</body>
+
+</html>
